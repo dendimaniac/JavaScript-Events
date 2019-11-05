@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PublishConfigData" uploadOnCheckin="8a83477c-e7a2-48b0-a9a4-7a8673bc26ea">
+    <serverData>
+      <paths name="Metro Server">
+        <serverdata>
+          <mappings>
+            <mapping local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+      <paths name="Metro Shell">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/JavaScript Events" local="$PROJECT_DIR$" web="/JavaScript Events" />
+            <mapping local="" />
+          </mappings>
+        </serverdata>
+      </paths>
+    </serverData>
+    <option name="myUploadOnCheckinName" value="Metro Shell" />
+  </component>
+</project>

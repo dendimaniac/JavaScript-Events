@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initialscale=1.0">
+    <title>JavaScript Events</title>
+</head>
+
+<body>
+<tab-panel>
+    <div data-tabname="one">Tab one</div>
+    <div data-tabname="two">Tab two</div>
+    <div data-tabname="three">Tab three</div>
+</tab-panel>
+<script>
+    let previousTab;
+
+    function asTabs(node) {
+        const divList = node.querySelectorAll('div');
+        divList.forEach(it => {
+            const parentDiv = document.createElement('div');
+            node.appendChild(parentDiv);
+
+            const button = document.createElement('button');
+            button.addEventListener('click', showTab);
+            button.innerHTML = it.innerHTML;
+            button.style.display = 'block';
+
+            parentDiv.appendChild(button);
+            parentDiv.appendChild(it);
+
+            it.style.display = 'none';
+            previousTab = it;
+        })
+    }
+
+    const showTab = (e) => {
+        previousTab.style.display = 'none';
+        const selectedTab = e.target.parentElement.querySelector('div');
+        selectedTab.style.display = 'block';
+        previousTab = selectedTab;
+    };
+
+    asTabs(document.querySelector("tab-panel"));
+</script>
+</body>
+
+</html>

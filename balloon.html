@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initialscale=1.0">
+    <title>JavaScript Events</title>
+</head>
+
+<body>
+<p>🎈</p>
+
+<script>
+    const balloon = document.querySelector('p');
+
+    balloon.style.fontSize = '20px';
+
+    const scaleBalloon = (evt) => {
+        evt.preventDefault();
+        let balloonSize = parseInt(balloon.style.fontSize);
+        if (balloonSize < 150) {
+            if (evt.key === 'ArrowUp') {
+                balloonSize += 30;
+                balloon.style.fontSize = balloonSize + 'px';
+                return;
+            }
+        }
+        balloon.innerHTML = '💥';
+    };
+
+    document.addEventListener('keydown', scaleBalloon);
+</script>
+</body>
+
+</html>

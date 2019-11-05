@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initialscale=1.0">
+    <title>JavaScript Events</title>
+    <style>
+        .trail {
+            position: absolute;
+            height: 6px;
+            width: 6px;
+            border-radius: 3px;
+            background: teal;
+        }
+
+        body {
+            margin: 0;
+            height: 300px;
+        }
+    </style>
+</head>
+
+<body>
+<script>
+    let trailElements = [];
+
+    /*
+    const mouseTrail = (e) => {
+        if (trailElements.length < 5) {
+            addTrailElement();
+        }
+        followMouse(e);
+    };
+
+    const followMouse = (e) => {
+        const lastItem = trailElements.pop();
+        lastItem.style.left = e.clientX + 'px';
+        lastItem.style.top = e.clientY + 'px';
+        trailElements.reverse();
+        trailElements.push(lastItem);
+        trailElements.reverse();
+    };
+
+    const addTrailElement = () => {
+        const trail = document.createElement('div');
+        trail.className = 'trail';
+        trailElements.push(trail);
+        document.querySelector('body').appendChild(trail);
+    };
+     */
+    const mouseTrail = (e) => {
+        const trail = document.createElement('div');
+        trail.className = 'trail';
+        trail.style.left = e.clientX + 'px';
+        trail.style.top = e.clientY + 'px';
+        document.querySelector('body').appendChild(trail);
+        trailElements.push(trail);
+        if (trailElements.length > 10) {
+            document.querySelector('body').removeChild(trailElements[0]);
+            trailElements.shift();
+        }
+    };
+
+    document.addEventListener('mousemove', mouseTrail)
+</script>
+</body>
+
+</html>
